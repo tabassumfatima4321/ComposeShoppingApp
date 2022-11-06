@@ -10,6 +10,8 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.example.shoppingcomposeapp.Screens.MainScreen
 import com.example.shoppingcomposeapp.ui.theme.ShoppingComposeAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,10 +21,11 @@ class MainActivity : ComponentActivity() {
             ShoppingComposeAppTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
+
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    MainScreen(/*navHostController = navController*/)
                 }
             }
         }
@@ -38,6 +41,8 @@ fun Greeting(name: String) {
 @Composable
 fun DefaultPreview() {
     ShoppingComposeAppTheme {
-        Greeting("Android")
+        MainScreen()
+
+        // Greeting("Android")
     }
 }
