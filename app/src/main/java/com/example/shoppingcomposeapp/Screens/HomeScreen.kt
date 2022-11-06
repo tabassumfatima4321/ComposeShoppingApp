@@ -9,17 +9,19 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Icon
 import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.semantics.Role.Companion.Image
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.example.shoppingcomposeapp.R
 import com.example.shoppingcomposeapp.ui.theme.BackgroundColor
+import com.example.shoppingcomposeapp.ui.theme.ShoppingComposeAppTheme
 
 @Composable
 fun HomeScreen()
@@ -28,33 +30,44 @@ fun HomeScreen()
     {
         ConstraintLayout(modifier=Modifier.fillMaxSize())
         {
-            val (navigationImage,profileImage)=createRefs()
+            val (navigationImage,profileImage,
+            shoppingAppTitle)=createRefs()
             Image(painter = painterResource(id = R.drawable.ic_navigation)
             , contentDescription = "navigation_img",
             contentScale = ContentScale.Crop,
-            modifier = Modifier.clip(CircleShape)
+            modifier = Modifier
+                .clip(CircleShape)
                 .size(50.dp)
                 .background(Color.White)
-                .border(1.dp,Color.White, CircleShape)
-                .constrainAs(navigationImage){
-                    top.linkTo(parent.top,10.dp)
-                    start.linkTo(parent.start,10.dp)
+                .border(1.dp, Color.White, CircleShape)
+                .constrainAs(navigationImage) {
+                    top.linkTo(parent.top, 10.dp)
+                    start.linkTo(parent.start, 10.dp)
                 }
 
             )
             Image(painter = painterResource(id = R.drawable.girl)
                 , contentDescription = "navigation_img",
                 contentScale = ContentScale.Crop,
-                modifier = Modifier.clip(CircleShape)
+                modifier = Modifier
+                    .clip(CircleShape)
                     .size(50.dp)
                     .background(Color.White)
-                    .border(1.dp,Color.White, CircleShape)
-                    .constrainAs(profileImage){
-                        top.linkTo(parent.top,10.dp)
-                        end.linkTo(parent.end,10.dp)
+                    .border(1.dp, Color.White, CircleShape)
+                    .constrainAs(profileImage) {
+                        top.linkTo(parent.top, 10.dp)
+                        end.linkTo(parent.end, 10.dp)
                     }
 
+
             )
+            Text(text = "Shopping App", modifier = Modifier.constrainAs(shoppingAppTitle)
+            {
+                top.linkTo(parent.top,10.dp)
+                start.linkTo(parent.start)
+                end.linkTo(parent.end)
+            })
+
         }
     }
 }

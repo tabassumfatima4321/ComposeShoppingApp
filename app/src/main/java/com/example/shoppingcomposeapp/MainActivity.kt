@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
+import com.example.shoppingcomposeapp.Screens.HomeScreen
 import com.example.shoppingcomposeapp.Screens.MainScreen
 import com.example.shoppingcomposeapp.ui.theme.ShoppingComposeAppTheme
 
@@ -41,8 +42,7 @@ fun Greeting(name: String) {
 @Composable
 fun DefaultPreview() {
     ShoppingComposeAppTheme {
-        MainScreen()
-
+        HomeScreen()
         // Greeting("Android")
     }
 }
